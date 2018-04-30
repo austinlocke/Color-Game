@@ -26,14 +26,14 @@ const generateColors = function (n) {
 /* Fill in the 6 squares with 6 random colors */
 const colorSquares = function (colors) {
     for (var i = 0; i < squares.length; i++) {
-        squares[i].style.background = colors[i];
+        squares[i].style.backgroundColor = colors[i];
     }
 };
 
 /* Fill all 6 squares with 'key' color if correct square selected */
 const colorSame = function () {
     for (var i = 0; i < squares.length; i++) {
-        squares[i].style.background = gameState.colorKey;
+        squares[i].style.backgroundColor = gameState.colorKey;
     }
 };
 
@@ -66,7 +66,7 @@ const initGame = function () {
     rgb.textContent = key;
     newGame.textContent = "New Colors";
     message.textContent = "";
-    title.style.background = "steelblue";
+    title.style.backgroundColor = "steelblue";
 };
 
 /* Initialize application by initGame, and creating all our listeners */
@@ -80,14 +80,14 @@ const createListeners = (function () {
     // Listener for each square for game
     for(var i = 0; i < squares.length; i++) {
         squares[i].addEventListener("click", function() {
-            if (this.style.background === gameState.colorKey) {
+            if (this.style.backgroundColor === gameState.colorKey) {
                 message.textContent = "Correct!"
-                title.style.background = gameState.colorKey;
+                title.style.backgroundColor = gameState.colorKey;
                 newGame.textContent = "Play Again?"
                 colorSame();
             }
             else {
-                this.style.background = "#232323";
+                this.style.backgroundColor = "#232323";
                 message.textContent = "Try Again"
             }
         });
